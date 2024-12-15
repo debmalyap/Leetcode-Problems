@@ -9,13 +9,12 @@ public class TwoSumSorting
 		Arrays.sort(inputArray);
 		int leftIndex = 0, rightIndex = inputArray.length-1;
 		
-		for(int i=0;i<inputArray.length;i++)
+		while(leftIndex<rightIndex)
 		{
-			int complement = inputArray[rightIndex]-inputArray[leftIndex];
-			if(complement == target)
+			int complement = inputArray[rightIndex]+inputArray[leftIndex];
+			if(complement < target)
 			{
-				return new int[] {leftIndex,rightIndex};
-				
+				leftIndex++;
 			}
 			else if(complement > target)
 			{
@@ -23,7 +22,8 @@ public class TwoSumSorting
 			}
 			else
 			{
-				leftIndex++;
+				return new int[] {leftIndex,rightIndex};
+				
 			}
 			
 		}
